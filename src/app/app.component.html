@@ -15,5 +15,6 @@
   <app-contact-input
     *ngIf="isCreating === true"
     (onCancel)="cancelCreate()"
+    (onSubmit)="submitCreate($event)"
   ></app-contact-input>
 </div>

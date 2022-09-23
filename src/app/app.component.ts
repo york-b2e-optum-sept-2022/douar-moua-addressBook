@@ -65,16 +65,26 @@ export class AppComponent {
 
   }
 
+  //for button
   newContact(){
     this.isCreating = true;
+
+  }
+
+  submitCreate(newContact: IContact){
+
+    //guard
+    if (newContact.name.length ===0){
+      return
+    }
+
+    console.log('In root: ', newContact)
+    this.isCreating = false;
+    this.contactList.unshift(newContact);
   }
 
   cancelCreate(){
     this.isCreating = false;
-  }
-
-  createContact(){
-
   }
 
   deleteContact(contactToDelete: IContact){
