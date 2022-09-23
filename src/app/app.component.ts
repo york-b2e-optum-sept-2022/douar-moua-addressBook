@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {IAccount} from "./interfaces/IAccount";
+import {IContact} from "./interfaces/IContact";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,77 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'address-book';
+
+  accountList: IAccount[] = [
+    {username: 'admin', password: 'admin'}
+    ]
+
+  contactList: IContact[] = [
+    {
+    id: 0,
+    name: 'contact name',
+    address: '123 main st',
+    phoneNumber: '555-555-555',
+    email: 'string',
+    birthday: new Date(),
+    meetingDate: new Date(),
+    relation: 'co-worker',
+    company: 'york solutions',
+    notes: 'cool person',
+  },
+    {
+      id: 1,
+      name: 'contact name',
+      address: '123 main st',
+      phoneNumber: '555-555-555',
+      email: 'string',
+      birthday: new Date(),
+      meetingDate: new Date(),
+      relation: 'co-worker',
+      company: 'york solutions',
+      notes: 'cool person',
+    }
+  ]
+
+//-----
+
+  //we turn this to TRUE so that we can work on the Rendered Contact-List component w/out having to keep logging in
+  isLoggedIn: boolean = true;
+
+  isCreating: boolean = false;
+
+//-----
+
+  onLogin(loginCreds: IAccount){
+    const foundAccount = this.accountList.find((account) => {
+      return account.username === loginCreds.username
+      && account.password === loginCreds.password
+    })
+
+    //guard for incorrect login credentials
+    if (foundAccount === undefined){
+      console.log('invalid login')
+      return
+    }
+
+    this.isLoggedIn = true;
+
+  }
+
+  newContact(){
+    this.isCreating = true;
+  }
+
+  cancelCreate(){
+    this.isCreating = false;
+  }
+
+  createContact(){
+
+  }
+
+  deleteContact(contactToDelete: IContact){
+    this.contactList = this.contactList.filter(contact => contact.id !== contactToDelete.id);
+  }
+
 }
