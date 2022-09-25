@@ -1,5 +1,18 @@
 .contact{
-  border: solid black 1px;
+  border: solid #D4A373 2px;
+  border-radius: 5px;
+  margin: 0.5rem;
+  padding: 0.25rem;
+  background-color: #FAEDCD;
+  font-size: 20px;
+}
+
+input{
+  margin: 0.25rem;
+}
+
+button{
   margin: 0.25rem;
   padding: 0.25rem;
+  font-size: 15px;
 }

@@ -1,21 +1,24 @@
 <!--ensures we can render our components successfully-->
-<app-login
-  *ngIf="isLoggedIn === false"
-  (onLogin)="onLogin($event)"
-></app-login>
+<!--<div class="main">-->
+  <app-login
+    *ngIf="isLoggedIn === false"
+    (onLogin)="onLogin($event)"
+  ></app-login>
 
-<div *ngIf="isLoggedIn === true">
-  <app-contact-list
-    *ngIf="isCreating === false"
-    [list]="contactList"
-    (onDelete)="deleteContact($event)"
-    (newContact)="newContact()"
-    (onUpdate)="updateContact($event)"
-  ></app-contact-list>
+  <div *ngIf="isLoggedIn === true">
+    <app-contact-list
+      *ngIf="isCreating === false"
+      [list]="contactList"
+      (onDelete)="deleteContact($event)"
+      (newContact)="newContact()"
+      (onUpdate)="updateContact($event)"
+    ></app-contact-list>
 
-  <app-contact-input
-    *ngIf="isCreating === true"
-    (onCancel)="cancelCreate()"
-    (onSubmit)="submitCreate($event)"
-  ></app-contact-input>
-</div>
+    <app-contact-input
+      *ngIf="isCreating === true"
+      (onCancel)="cancelCreate()"
+      (onSubmit)="submitCreate($event)"
+    ></app-contact-input>
+  </div>
+<!--</div>-->
+
