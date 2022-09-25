@@ -34,5 +34,8 @@ export class ContactListComponent implements OnInit {
     this.onUpdate.emit(contact);
   }
 
+  onSearch(){
+    console.log('search clicked!')
+  }
 
 }
