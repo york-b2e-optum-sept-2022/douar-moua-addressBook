@@ -13,6 +13,7 @@ export class ContactListComponent implements OnInit {
   @Output() onDelete = new EventEmitter<IContact>();
   @Output() onUpdate = new EventEmitter<IContact>();
 
+  searchList!: IContact;
 
   constructor() { }
 
@@ -32,5 +33,6 @@ export class ContactListComponent implements OnInit {
   onContactUpdate(contact: IContact){
     this.onUpdate.emit(contact);
   }
+
 
 }
