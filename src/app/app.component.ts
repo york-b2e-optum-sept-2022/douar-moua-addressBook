@@ -43,8 +43,7 @@ export class AppComponent {
 //-----
 
   //we turn this to TRUE so that we can work on the Rendered Contact-List component w/out having to keep logging in
-  isLoggedIn: boolean = true;
-
+  isLoggedIn: boolean = false;
   isCreating: boolean = false;
   isUpdating: boolean = false;
 

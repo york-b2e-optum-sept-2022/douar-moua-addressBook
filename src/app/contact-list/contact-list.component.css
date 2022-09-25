@@ -1,1 +1,28 @@
+.newContact{
+  border: solid #D4A373 2px;
+  border-radius: 5px;
+  margin: 0.5rem;
+  padding: 0.25rem;
+  background-color: #FAEDCD;
+  font-size: 20px;
+}
 
+.search{
+  border: solid #D4A373 2px;
+  border-radius: 5px;
+  margin: 0.5rem;
+  padding: 0.25rem;
+  background-color: #FAEDCD;
+  font-size: 20px;
+}
+
+input{
+  width: 10rem;
+  height: 1.5rem;
+}
+
+button{
+  margin: 0.25rem;
+  padding: 0.25rem;
+  font-size: 15px;
+}
