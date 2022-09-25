@@ -1,0 +1,35 @@
+<div *ngIf="isUpdating === false" class="contact">
+  <div>Name: {{contact.name}}</div>
+  <div>Address: {{contact.address}}</div>
+  <div>Phone Number: {{contact.phoneNumber}}</div>
+  <div>Email: {{contact.email}}</div>
+  <div>Birthday: {{contact.birthday}}</div>
+  <div>Meeting Date: {{contact.meetingDate}}</div>
+  <div>Relation: {{contact.relation}}</div>
+  <div>Company: {{contact.company}}</div>
+  <div>Notes: {{contact.notes}}</div>
+  <div class="contact-footer">
+    <button *ngIf="isUpdating === false" (click)="onDeleteClick()">Delete</button>
+    <button *ngIf="isUpdating === false" (click)="onUpdateClick()">Update</button>
+<!--    <button *ngIf="isUpdating === true" (click)="onSaveClick()">Save</button>-->
+<!--    <button *ngIf="isUpdating === true" (click)="onCancelClick()">Cancel</button>-->
+  </div>
+</div>
+
+<div *ngIf="isUpdating === true" class="contact">
+  <div>Name: <input [(ngModel)]="localContact.name"></div>
+  <div>Address: <input [(ngModel)]="localContact.address"></div>
+  <div>Phone Number: <input [(ngModel)]="localContact.phoneNumber"></div>
+  <div>Email: <input [(ngModel)]="localContact.email"></div>
+  <div>Birthday: <input [(ngModel)]="localContact.birthday"></div>
+  <div>Meeting Date: <input [(ngModel)]="localContact.meetingDate"></div>
+  <div>Relation: <input [(ngModel)]="localContact.relation"></div>
+  <div>Company: <input [(ngModel)]="localContact.company"></div>
+  <div>Notes: <input [(ngModel)]="localContact.notes"></div>
+<!--      <button *ngIf="isUpdating === false" (click)="onDeleteClick()">Delete</button>-->
+<!--      <button *ngIf="isUpdating === false" (click)="onUpdateClick()">Update</button>-->
+  <button *ngIf="isUpdating === true" (click)="onSaveClick()">Save</button>
+  <button *ngIf="isUpdating === true" (click)="onCancelClick()">Cancel</button>
+</div>
+
+

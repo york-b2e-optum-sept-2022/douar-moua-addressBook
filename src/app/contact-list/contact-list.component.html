@@ -1,0 +1,11 @@
+<button (click)="onClick()">New Contact</button>
+<input>
+
+<div class="contact-list">
+  <app-contact
+    *ngFor="let contactData of list"
+    [contact]="contactData"
+    (onDelete)="onContactDelete($event)"
+    (onUpdate)="onContactUpdate($event)"
+  ></app-contact>
+</div>

@@ -46,6 +46,7 @@ export class AppComponent {
   isLoggedIn: boolean = true;
 
   isCreating: boolean = false;
+  isUpdating: boolean = false;
 
 //-----
 
@@ -89,6 +90,18 @@ export class AppComponent {
 
   deleteContact(contactToDelete: IContact){
     this.contactList = this.contactList.filter(contact => contact.id !== contactToDelete.id);
+  }
+
+  updateContact(updatedContact: IContact){
+    if (updatedContact.name.length === 0){
+      return
+    }
+
+    const contactIndex = this.contactList.findIndex(contact => contact.id === updatedContact.id);
+    if (contactIndex > -1){
+      this.contactList[contactIndex] = updatedContact;
+    }
+
   }
 
 }
