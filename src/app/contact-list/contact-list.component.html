@@ -1,17 +1,17 @@
-<div class="newContact">
-  <button (click)="onClick()">New Contact</button>
-</div>
-
-<div class="search">
-  <input [(ngModel)]="searchList">
-  <button (click)="onSearch()">Search</button>
+<div class="nav">
+<!--  <div class="account">-->
+<!--    <p>username</p>-->
+<!--    <button>Log Out</button>-->
+<!--  </div>-->
+  <button (click)="onNewContact()">New Contact</button>
+  <input [ngModel]="searchText" (ngModelChange)="filterList($event)" placeholder="Search">
 </div>
 
 <div class="contact-list">
   <app-contact
-    *ngFor="let contactData of list"
+    *ngFor="let contactData of displayList"
     [contact]="contactData"
     (onDelete)="onContactDelete($event)"
-    (onUpdate)="onContactUpdate($event)"
+    (onSave)="onContactUpdate($event)"
   ></app-contact>
 </div>
