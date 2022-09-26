@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {IContact} from "../interfaces/IContact";
 
 @Component({
@@ -6,7 +6,7 @@ import {IContact} from "../interfaces/IContact";
   templateUrl: './contact-list.component.html',
   styleUrls: ['./contact-list.component.css']
 })
-export class ContactListComponent implements OnInit {
+export class ContactListComponent implements OnInit, OnChanges{
 
   @Input() list!: IContact[];
   @Output() newContact = new EventEmitter<undefined>();
@@ -24,6 +24,12 @@ export class ContactListComponent implements OnInit {
     this.displayList = [...this.list];
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(this.list)
+    this.displayList = [...this.list];
+    console.log(this.displayList)
+  }
+
   onNewContact(){
     console.log('Console in Contact List Comp: New contact clicked!')
     this.newContact.emit();
@@ -34,6 +40,7 @@ export class ContactListComponent implements OnInit {
   }
 
   onContactUpdate(contact: IContact){
+    console.log(contact);
     this.onUpdate.emit(contact);
   }
 

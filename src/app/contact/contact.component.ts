@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {IContact} from "../interfaces/IContact";
 
 @Component({
@@ -6,7 +6,7 @@ import {IContact} from "../interfaces/IContact";
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, OnChanges{
 
   @Input() contact!: IContact;
 
@@ -21,6 +21,10 @@ export class ContactComponent implements OnInit {
 
   //allows us to work with localContact! copy?
   ngOnInit(): void {
+    this.localContact = {...this.contact};
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
     this.localContact = {...this.contact};
   }
 
@@ -39,8 +43,9 @@ export class ContactComponent implements OnInit {
   //emit new updates to contact-list
   onSaveClick(){
     //TODO: ensure the date inputs are still saved as Objects
-    this.localContact.birthday
-    this.localContact.meetingDate
+    //WHY DOESNT THE DATE GET UPDATED????
+    this.localContact.birthday = new Date(this.localContact.birthday);
+    this.localContact.meetingDate = new Date(this.localContact.meetingDate);
 
     this.onSave.emit(this.localContact)
     this.isUpdating = false;

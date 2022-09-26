@@ -13,20 +13,19 @@ export class AppComponent {
   accountList: IAccount[] = [
     {username: 'admin', password: 'admin'}
     ]
-
   contactList: IContact[] = [
-    {
-    id: '0',
-    name: 'test1 name',
-    address: '123 main st',
-    phoneNumber: '555-555-555',
-    email: 'string',
-    birthday: new Date(),
-    meetingDate: new Date(),
-    relation: 'co-worker',
-    company: 'york solutions',
-    notes: 'cool person',
-  }
+  //   {
+  //   id: '0',
+  //   name: 'test1 name',
+  //   address: '123 main st',
+  //   phoneNumber: '555-555-555',
+  //   email: 'string',
+  //   birthday: new Date(),
+  //   meetingDate: new Date(),
+  //   relation: 'co-worker',
+  //   company: 'york solutions',
+  //   notes: 'cool person',
+  // }
   ]
 
   //we turn isLoggedIn to TRUE so that we can work on the Rendered Contact-List component w/out having to keep logging in
@@ -84,19 +83,23 @@ export class AppComponent {
 
   //update contact feature
   updateContact(updatedContact: IContact){
-    if (updatedContact === undefined){
+    if (updatedContact.name.length === 0){
       console.log('console in root unable to find contact')
       return;
     }
 
     const contactIndex = this.contactList.findIndex(contact => contact.id === updatedContact.id);
-    if (contactIndex === -1){
-      console.log('console in root: unable to find')
+    console.log(contactIndex)
+    if (contactIndex > -1){
     }
 
-    this.contactList[contactIndex] = updatedContact;
+    const newContactList  = [...this.contactList];
+    newContactList[contactIndex] = updatedContact;
 
-    console.log('console in root; update: ', updatedContact)
+    this.contactList = newContactList;
+    // this.contactList[contactIndex] = updatedContact;
+
+    console.log('console in root; update: ', this.contactList)
   }
 
 }
