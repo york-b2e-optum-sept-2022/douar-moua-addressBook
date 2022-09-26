@@ -1,10 +1,13 @@
-.newContact{
+.nav{
   border: solid #D4A373 2px;
   border-radius: 5px;
   margin: 0.5rem;
   padding: 0.25rem;
-  background-color: #FAEDCD;
+  background-color: #D4A373;
   font-size: 20px;
+}
+
+.account{
 }
 
 .search{

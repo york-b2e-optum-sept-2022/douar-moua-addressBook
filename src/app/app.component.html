@@ -9,8 +9,8 @@
     <app-contact-list
       *ngIf="isCreating === false"
       [list]="contactList"
-      (onDelete)="deleteContact($event)"
       (newContact)="newContact()"
+      (onDelete)="deleteContact($event)"
       (onUpdate)="updateContact($event)"
     ></app-contact-list>
 

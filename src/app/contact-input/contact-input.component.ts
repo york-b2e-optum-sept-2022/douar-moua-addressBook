@@ -8,10 +8,9 @@ import {IContact} from "../interfaces/IContact";
 })
 export class ContactInputComponent implements OnInit {
 
-  currentDate = new Date();
   //local to this component - a blueprint that is used to create new contact
   contact: IContact = {
-    id: this.currentDate.getTime(),
+    id: "",
     name: "",
     address: "",
     phoneNumber: "",
@@ -39,6 +38,9 @@ export class ContactInputComponent implements OnInit {
   //records the captured new contact input
   onSubmitClick(contact: IContact){
     console.log('submitted= ',contact)
+
+    //ensure the date inputs are still saved as Objects
+    this.contact.birthday
     this.onSubmit.emit(contact);
   }
 

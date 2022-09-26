@@ -3,17 +3,17 @@
   <div>Address: {{contact.address}}</div>
   <div>Phone Number: {{contact.phoneNumber}}</div>
   <div>Email: {{contact.email}}</div>
-  <div>Birthday: {{contact.birthday}}</div>
-  <div>Meeting Date: {{contact.meetingDate}}</div>
+  <div>Birthday: {{contact.birthday | date}}</div>
+  <div>Meeting Date: {{contact.meetingDate | date}}</div>
   <div>Relation: {{contact.relation}}</div>
   <div>Company: {{contact.company}}</div>
   <div>Notes: {{contact.notes}}</div>
+
   <div class="contact-footer">
     <button *ngIf="isUpdating === false" (click)="onDeleteClick()">Delete</button>
     <button *ngIf="isUpdating === false" (click)="onUpdateClick()">Update</button>
-<!--    <button *ngIf="isUpdating === true" (click)="onSaveClick()">Save</button>-->
-<!--    <button *ngIf="isUpdating === true" (click)="onCancelClick()">Cancel</button>-->
   </div>
+
 </div>
 
 <div *ngIf="isUpdating === true" class="contact">
@@ -26,10 +26,12 @@
   <div>Relation: <input [(ngModel)]="localContact.relation"></div>
   <div>Company: <input [(ngModel)]="localContact.company"></div>
   <div>Notes: <input [(ngModel)]="localContact.notes"></div>
-<!--      <button *ngIf="isUpdating === false" (click)="onDeleteClick()">Delete</button>-->
-<!--      <button *ngIf="isUpdating === false" (click)="onUpdateClick()">Update</button>-->
-  <button *ngIf="isUpdating === true" (click)="onSaveClick()">Save</button>
-  <button *ngIf="isUpdating === true" (click)="onCancelClick()">Cancel</button>
+
+  <div class="contact-footer">
+    <button *ngIf="isUpdating === true" (click)="onSaveClick()">Save</button>
+    <button *ngIf="isUpdating === true" (click)="onCancelClick()">Cancel</button>
+  </div>
+
 </div>
 
 
